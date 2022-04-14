@@ -12,6 +12,6 @@ return [
     'profile-error-birthday-field' => 'Поле «Дата рождения»',
     'profile-error-root-field' => 'Поле «Статус коренного жителя»',
     'profile-error-stay-field' => 'Поле «Стаж проживания в условиях Арктики»',
-    'dashboard.profile-error-last_name-field' => 'Поле «Фамилия»',
-    'dashboard.profile-error-phone-field' => 'Поле «Номер телефона»'
+    'profile-error-last_name-field' => 'Поле «Фамилия»',
+    'profile-error-phone-field' => 'Поле «Номер телефона»'
 ];
