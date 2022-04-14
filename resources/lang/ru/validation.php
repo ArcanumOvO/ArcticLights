@@ -31,7 +31,7 @@ return [
     ],
     'boolean' => 'The :attribute field must be true or false.',
     'confirmed' => 'Подтерждение :attribute не совпадает.',
-    'date' => 'The :attribute is not a valid date.',
+    'date' => 'Поле :attribute имеет некорректный формат.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
     'different' => 'The :attribute and :other must be different.',
@@ -57,7 +57,7 @@ return [
         'array' => 'The :attribute must have :value items or more.',
     ],
     'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
+    'in' => 'Значение поля :attribute недопустимо.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
     'ip' => 'The :attribute must be a valid IP address.',
@@ -121,7 +121,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
-    'phone' => 'Неверный формат :attribute',
+    'phone' => 'Некорректный формат :attribute',
 
     /*
     |--------------------------------------------------------------------------
