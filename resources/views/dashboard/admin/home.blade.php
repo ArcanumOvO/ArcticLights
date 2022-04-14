@@ -9,27 +9,25 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 col-lg-6">
-            <h3 class="pb-2">Сводные данные</h3>
-            <canvas class="my-4 w-100 js-users-chart"
-                    data-root="{{ $statistic['users']['root-count'] }}"
-                    data-non-root="{{ $statistic['users']['non-root-count'] }}"></canvas>
-        </div>
-        <div class="col-12 col-lg-6">
-            <h3 class="pb-2">Обработка анкет</h3>
-            <form action="/surveys/obtainResult"
-                  method="POST"
-                  accept-charset="UTF-8"
-                  enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">
-                        Загрузите результат анкетирования в формате .scv
-                    </label>
-                    <input class="form-control" required type="file" id="formFile" name="result" accept=".csv">
+        <div class="col">
+            <h3 class="pb-2">Сводные данные по пользователям</h3>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <canvas class="my-4 w-100 js-users-root-chart"
+                            data-root="{{ $statistic['users']['byRoot'][1] }}"
+                            data-non-root="{{ $statistic['users']['byRoot'][0] }}"></canvas>
                 </div>
-                <button type="submit" class="btn btn-primary">Получить рецензентов</button>
-            </form>
+                <div class="col-12 col-lg-6">
+                    <canvas class="my-4 w-100 js-users-sex-chart"
+                            data-man="{{ $statistic['users']['bySex']['m'] }}"
+                            data-woman="{{ $statistic['users']['bySex']['f'] }}"
+                            data-undefined="{{ $statistic['users']['bySex'][""] }}"></canvas>
+                </div>
+                <div class="col-12">
+                    <canvas class="my-4 w-100 js-users-registers-chart"
+                            data-users="{{ json_encode($statistic['users']['dynamic']) }}"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

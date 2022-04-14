@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Dashboard\Admin\AdminDashboardController;
 use App\Http\Requests\UserProfileRequest;
 use App\Models\Document;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -28,14 +27,13 @@ class DashboardController extends Controller
 
     /**
      * Главная страница личного кабинета.
-     * TODO: make it better
      * @return Application|Factory|View
      * @throws BindingResolutionException
      */
     public function index()
     {
         if (Auth::user()->hasRole('admin')) {
-            return app()->make(AdminDashboardController::class)->index();
+            return redirect(route('admin.dashboard'));
         }
         return view('dashboard.home');
     }

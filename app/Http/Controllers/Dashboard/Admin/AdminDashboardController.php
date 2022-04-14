@@ -3,26 +3,28 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\StatisticController;
+use App\Services\StatisticService;
 
 class AdminDashboardController extends Controller
 {
-    protected StatisticController $statisticController;
+    protected StatisticService $statisticController;
 
-    public function __construct(StatisticController $statisticController)
+    public function __construct(StatisticService $statisticController)
     {
         $this->statisticController = $statisticController;
     }
 
     public function index()
     {
-        $statistic = [
-            'users' => $this->statisticController->users(),
-            'surveys' => $this->statisticController->surveys(),
-        ];
-
         return view('dashboard.admin.home', [
-            'statistic' => $statistic
+            'statistic' => [
+                'users' => $this->statisticController->users(),
+            ]
         ]);
+    }
+
+    public function export()
+    {
+        return view('dashboard.admin.export');
     }
 }

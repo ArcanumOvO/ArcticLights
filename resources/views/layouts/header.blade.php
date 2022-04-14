@@ -42,19 +42,19 @@
                                 <div class="dropdown__content">
                                     <ul class="nav-list  nav-list--lang">
                                         <li class="nav-list__item">
-                                            <a href="{{Route('dashboard')}}" class="nav-list__link nav-list__link--hasOpacity">Личный кабинет</a>
+                                            <a href="{{route('dashboard')}}" class="nav-list__link nav-list__link--hasOpacity">Личный кабинет</a>
                                         </li>
                                         <li class="nav-list__item">
-                                            <a href="{{Route('profile')}}" class="nav-list__link nav-list__link--hasOpacity">Профиль</a>
+                                            <a href="{{route('profile')}}" class="nav-list__link nav-list__link--hasOpacity">Профиль</a>
                                         </li>
                                         <li class="nav-list__item">
-                                            <a href="{{Route('survey.index')}}" class="nav-list__link nav-list__link--hasOpacity">Опросники</a>
+                                            <a href="{{route('survey.index')}}" class="nav-list__link nav-list__link--hasOpacity">Опросники</a>
                                         </li>
                                         <li class="nav-list__item">
-                                            <a href="{{Route('documents')}}" class="nav-list__link nav-list__link--hasOpacity">Документы</a>
+                                            <a href="{{route('documents')}}" class="nav-list__link nav-list__link--hasOpacity">Документы</a>
                                         </li>
                                         <li class="nav-list__item">
-                                            <a href="{{Route('logout')}}" class="nav-list__link nav-list__link--hasOpacity">Выйти</a>
+                                            <a href="{{route('logout')}}" class="nav-list__link nav-list__link--hasOpacity">Выйти</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -163,7 +163,7 @@
                 </form>
 
 
-                <form action="{{ Route('login') }}" class="form hidden js-ajax-form" method="POST" autocomplete="off" id="signup">
+                <form action="{{ route('login') }}" class="form hidden js-ajax-form" method="POST" autocomplete="off" id="signup">
                     @csrf
                     <div class="contacts__slide">
                         <div class="form__control form__control--m">

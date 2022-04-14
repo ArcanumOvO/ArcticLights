@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Survey;
 use App\Models\User;
+use App\Rules\Phone;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class SurveyController extends Controller
@@ -27,6 +31,23 @@ class SurveyController extends Controller
      */
     public function index()
     {
+        $validator = Validator::make(Auth::user()->toArray(), [
+            'name' => 'required|regex:/[A-Za-zА-Яа-яЁё\s-]/iu',
+            'email' => 'required|email',
+            'last_name' => 'required|regex:/[A-Za-zА-Яа-яЁё\s-]/iu',
+            'phone' => ['required', 'string', app(Phone::class)],
+            'weight' => 'required|numeric|min:0',
+            'height' => 'required|numeric|min:0',
+            'sex' => ['required', Rule::in(['m', 'f'])],
+            'birthday' => 'required|date',
+            'root' => 'required|boolean',
+            'stay' => 'required|numeric',
+        ]);
+        if ($validator->fails()) {
+            return redirect(route('profile'))
+                ->withErrors($validator)
+                ->withInput();
+        }
         $aIncompleteSurveys = Survey::getIncomplete(Auth::id());
         $aCompleteSurveys   = Survey::getComplete(Auth::id());
         return view('surveys.list', compact('aIncompleteSurveys', 'aCompleteSurveys'));
@@ -106,7 +127,6 @@ class SurveyController extends Controller
                 'phone',
                 'height',
                 'weight',
-                'age',
                 'sex',
                 'birthday',
                 'stay',
@@ -122,19 +142,18 @@ class SurveyController extends Controller
             'Expires' => '0'
         ];
         $columns   = [
-            'name',
-            'last_name',
-            'email',
-            'phone',
-            'height',
-            'weight',
-            'age',
-            'sex',
-            'birthday',
-            'stay',
-            'root',
-            'result',
-            'result_id',
+            'Имя',
+            'Фамилия',
+            'Email',
+            'Номер телефона',
+            'Рост (в кг)',
+            'Вес (в см)',
+            'Пол',
+            'Дата рождения',
+            'стаж проживания в условиях Арктики',
+            'Коренной житель',
+            'Результат анкетирования',
+            'Идентификатор ответа',
         ];
 
         $callback = function () use ($users, $columns) {
@@ -149,6 +168,6 @@ class SurveyController extends Controller
             fclose($export);
         };
 
-        return response()->stream($callback, 200, $headers);
+        return response()->stream($callback, Response::HTTP_OK, $headers);
     }
 }

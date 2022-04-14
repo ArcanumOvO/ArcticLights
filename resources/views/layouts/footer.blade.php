@@ -62,15 +62,6 @@
                         <li class="nav-list__item">
                             <a rel="noopener noreferrer" target="_blank" href="#" class="nav-list__link nav-list__link--xs nav-list__link--hasOpacity nav-list__link--social">Vkontakte</a>
                         </li>
-                        <li class="nav-list__item">
-                            <a rel="noopener noreferrer" target="_blank" href="#" class="nav-list__link nav-list__link--xs nav-list__link--hasOpacity nav-list__link--social">Facebook</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a rel="noopener noreferrer" target="_blank" href="#" class="nav-list__link nav-list__link--xs nav-list__link--hasOpacity nav-list__link--social">Instagram</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a rel="noopener noreferrer" target="_blank" href="https://axiomadigital.ru" class="nav-list__link nav-list__link--s nav-list__link--hasOpacity" style="line-height: 1">by&nbsp; Axioma&nbsp; with&nbsp; ❤</a>
-                        </li>
                     </ul>
                 </div>
             </div>

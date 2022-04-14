@@ -2,11 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @User
+ * @property string role
+ * @property int age
+ * @property string birthday
+ *
+ */
 class User extends \TCG\Voyager\Models\User
 {
     use HasFactory, Notifiable;
@@ -24,7 +31,6 @@ class User extends \TCG\Voyager\Models\User
         'phone',
         'weight',
         'height',
-        'age',
         'sex',
         'birthday',
         'root',
@@ -51,10 +57,18 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return BelongsToMany
      */
     public function surveys()
     {
         return $this->belongsToMany(Survey::class, 'survey_user', 'user_id', 'survey_id')->withPivot('result');
+    }
+
+    /**
+     * @return int
+     */
+    public function getAgeAttribute()
+    {
+        return Carbon::now()->diffInYears(Carbon::parse($this->birthday));
     }
 }

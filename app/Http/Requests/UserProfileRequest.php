@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UserProfileRequest extends FormRequest
 {
@@ -14,7 +16,7 @@ class UserProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -25,16 +27,15 @@ class UserProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|regex:/[A-Za-zА-Яа-яЁё\s-]/iu',
             'email' => 'required|email',
-            'last_name' => 'required',
+            'last_name' => 'required|regex:/[A-Za-zА-Яа-яЁё\s-]/iu',
             'phone' => ['required', 'string',  app(Phone::class)],
             'weight' => 'required|numeric|min:0',
             'height' => 'required|numeric|min:0',
-            'age' => 'required|numeric|min:0',
-            'sex' => 'required',
+            'sex' => ['required', Rule::in(['m', 'f'])],
             'birthday' => 'required|date',
-            'root' => 'required',
+            'root' => 'required|boolean',
             'stay' => 'required|numeric',
         ];
     }

@@ -91,14 +91,14 @@
                             {{Auth::user()->name}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{Route('dashboard')}}">Личный кабинет</a></li>
-                            <li><a class="dropdown-item" href="{{Route('profile')}}">Профиль</a></li>
-                            <li><a class="dropdown-item" href="{{Route('survey.index')}}">Опросники</a></li>
-                            <li><a class="dropdown-item" href="{{Route('documents')}}">Документы</a></li>
+                            <li><a class="dropdown-item" href="{{route('dashboard')}}">Личный кабинет</a></li>
+                            <li><a class="dropdown-item" href="{{route('profile')}}">Профиль</a></li>
+                            <li><a class="dropdown-item" href="{{route('survey.index')}}">Опросники</a></li>
+                            <li><a class="dropdown-item" href="{{route('documents')}}">Документы</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{Route('logout')}}">Выйти</a></li>
+                            <li><a class="dropdown-item" href="{{route('logout')}}">Выйти</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -113,9 +113,15 @@
             <div class="position-sticky pt-3">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/dashboard/">
+                        <a class="nav-link @if(Route::currentRouteName() == 'admin.dashboard') active @endif" aria-current="page" href="/dashboard/{{-- route('admin.dashboard') --}}">
                             <span data-feather="home"></span>
-                            Dashboard
+                            Сводка
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(Route::currentRouteName() == 'admin.dashboard.export') active @endif" aria-current="export" href="{{ route('admin.dashboard.export') }}">
+                            <span data-feather="export"></span>
+                            Экспорт
                         </a>
                     </li>
                 </ul>
