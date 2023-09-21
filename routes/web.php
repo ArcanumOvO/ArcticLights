@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Admin\AdminDashboardController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SurveyController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use App\Models\Voyager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', [HomeController::class, 'frontpage'])->name('frontpage');
-Route::get('/about', [HomeController::class, 'getEmployees'])->name('about');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/press', function () {
     return view('press');
 });
@@ -73,4 +73,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
                 ->name('single');
         });
     });
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    app(Voyager::class)->routes();
 });

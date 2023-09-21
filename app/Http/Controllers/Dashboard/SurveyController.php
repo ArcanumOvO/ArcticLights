@@ -141,22 +141,22 @@ class SurveyController extends Controller
             'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
             'Expires' => '0'
         ];
-        $columns   = [
-            'Имя',
-            'Фамилия',
-            'Email',
-            'Номер телефона',
-            'Рост (в кг)',
-            'Вес (в см)',
-            'Пол',
-            'Дата рождения',
-            'стаж проживания в условиях Арктики',
-            'Коренной житель',
-            'Результат анкетирования',
-            'Идентификатор ответа',
-        ];
 
-        $callback = function () use ($users, $columns) {
+        $callback = function () use ($users) {
+            $columns = [
+                'Имя',
+                'Фамилия',
+                'Email',
+                'Номер телефона',
+                'Рост (в кг)',
+                'Вес (в см)',
+                'Пол',
+                'Дата рождения',
+                'стаж проживания в условиях Арктики',
+                'Коренной житель',
+                'Результат анкетирования',
+                'Идентификатор ответа',
+            ];
             $export = fopen('php://output', 'w');
             fprintf($export, chr(0xEF).chr(0xBB).chr(0xBF));
             $separator = ';';

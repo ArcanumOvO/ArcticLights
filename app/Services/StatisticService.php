@@ -16,9 +16,25 @@ class StatisticService
     public function users(): array
     {
         $users = $this->getUsers();
+        $byRoot = $users->countBy('root')->toArray();
+        $bySex = $users->countBy('sex')->toArray();
+        $undefinedSex = function () use ($bySex) {
+            unset($bySex['m']);
+            unset($bySex['f']);
+
+            return array_sum($bySex);
+        };
+
         return [
-            'byRoot' => $users->countBy('root')->toArray(),
-            'bySex' => $users->countBy('sex')->toArray(),
+            'byRoot' => [
+                'root' => $byRoot[1] ?? 0,
+                'non-root' => $byRoot[0] ?? 0,
+            ],
+            'bySex' => [
+                'm' => $bySex['m'] ?? 0,
+                'f' => $bySex['f'] ?? 0,
+                'undefined' => $undefinedSex(),
+            ],
             'dynamic' => $users->pluck('created_at')->countBy(function ($date) {
                 return $date->format('d.m.y');
             })
@@ -30,7 +46,7 @@ class StatisticService
      */
     protected function getUsers()
     {
-        return Cache::remember('statistic.user', 60*60*24, function(){
+        return Cache::remember('statistic.user', 60 * 60 * 24, function () {
             return User::query()->get(['sex', 'root', 'created_at']);
         });
     }
@@ -40,7 +56,7 @@ class StatisticService
      */
     public function surveys(): array
     {
-        return Cache::remember('statistic.surveys', 60*60*24, function(){
+        return Cache::remember('statistic.surveys', 60 * 60 * 24, function () {
             return Survey::query()->get();
         });
     }

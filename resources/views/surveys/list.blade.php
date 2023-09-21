@@ -34,6 +34,10 @@
                             <div class="card__body">
                                 <h4 class="card__title">{{$survey->name}}</h4>
                                 <span class="card__text">{{$survey->description}}</span>
+                                <a href="/dashboard/surveys/{{$survey->slug}}" class="button button--simple" style="margin-top: auto;
+    align-self: center;">
+                                    <span class="button__text">Пройти опросник ещё раз</span>
+                                </a>
                             </div>
                         </div>
                     @endforeach

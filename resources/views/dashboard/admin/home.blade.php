@@ -14,14 +14,14 @@
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <canvas class="my-4 w-100 js-users-root-chart"
-                            data-root="{{ $statistic['users']['byRoot'][1] }}"
-                            data-non-root="{{ $statistic['users']['byRoot'][0] }}"></canvas>
+                            data-root="{{ $statistic['users']['byRoot']['root'] }}"
+                            data-non-root="{{ $statistic['users']['byRoot']['non-root'] }}"></canvas>
                 </div>
                 <div class="col-12 col-lg-6">
                     <canvas class="my-4 w-100 js-users-sex-chart"
                             data-man="{{ $statistic['users']['bySex']['m'] }}"
                             data-woman="{{ $statistic['users']['bySex']['f'] }}"
-                            data-undefined="{{ $statistic['users']['bySex'][""] }}"></canvas>
+                            data-undefined="{{ $statistic['users']['bySex']["undefined"] }}"></canvas>
                 </div>
                 <div class="col-12">
                     <canvas class="my-4 w-100 js-users-registers-chart"

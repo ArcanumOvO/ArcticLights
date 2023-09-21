@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Post;
+use App\Models\ResearchStage;
 
 class HomeController extends Controller
 {
@@ -20,18 +21,25 @@ class HomeController extends Controller
 
 
     public function frontpage() {
-        $posts = Post::all();
+        $posts = Post::query()
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('frontpage', compact("posts"));
 
     }
 
-    public function getEmployees()
+    public function about()
     {
         $employees = Employee::query()
             ->orderBy('sort')
             ->orderBy('name')
             ->get();
-        return view('about', compact('employees'));
+
+        $researchStages = ResearchStage::query()
+            ->orderBy('order')
+            ->get();
+
+        return view('about', compact('researchStages', 'employees'));
     }
 
 }

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class EditUsersData extends Migration
 {
@@ -18,7 +16,7 @@ class EditUsersData extends Migration
             $sex = mb_strtolower($user->sex);
             if (preg_match('/ve;|уж|м/iu', $sex)) {
                 $user->sex = 'm';
-            } else if (preg_match('/;ty|ен|ж/iu', $sex)) {
+            } else if (preg_match('/;ty|ен|ж|F/iu', $sex)) {
                 $user->sex = 'f';
             }
             $user->save();

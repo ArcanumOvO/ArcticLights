@@ -11094,6 +11094,9 @@ body.navigation--open .header__burger:hover span:before {
 
 .card__body {
     padding: 5px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .card__title {
@@ -11118,6 +11121,11 @@ body.navigation--open .header__burger:hover span:before {
     height: 100%;
     width: 100%;
     background-color: rgba(130, 180, 220, 0.15);
+}
+
+.card__survey_done:hover::before {
+    display: none;
+    transition: all 0.3s linear;
 }
 
 .text-page__content_surveys .heading {
