@@ -133,7 +133,7 @@
 
 @font-face {
     font-family: 'DIN Pro';
-    src: url('DINPro.ttf') format('truetype');
+    src: url('../fonts/DINPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
