@@ -1,33 +1,145 @@
 @font-face {
-    font-family: Galio Sans;
-    src: url(../fonts/GalioSans_0918.woff2) format("woff2"), url(../fonts/GalioSans_0918.woff) format("woff"), url(../fonts/GalioSans_0918.ttf) format("truetype");
-    font-weight: 400;
-    font-style: normal
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: TT Hoves;
-    src: url(../fonts/3AACDA_1_0.woff2) format("woff2"), url(../fonts/3AACDA_1_0.woff) format("woff"), url(../fonts/3AACDA_1_0.ttf) format("truetype");
-    font-weight: 400;
-    font-style: normal
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
 }
 
 @font-face {
-    font-family: TT Hoves;
-    src: url(../fonts/3AACDA_2_0.woff2) format("woff2"), url(../fonts/3AACDA_2_0.woff) format("woff"), url(../fonts/3AACDA_2_0.ttf) format("truetype");
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('DINPro-CondensedBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedLightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('DINPro-CondensedMedium.ttf') format('truetype');
     font-weight: 500;
-    font-style: normal
+    font-style: normal;
 }
 
 @font-face {
-    font-family: TT Hoves;
-    src: url(../fonts/3AACDA_0_0.woff2) format("woff2"), url(../fonts/3AACDA_0_0.woff) format("woff"), url(../fonts/3AACDA_0_0.ttf) format("truetype");
-    font-weight: 600;
-    font-style: normal
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedMediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro Cond';
+    src: url('../fonts/DINPro-CondensedRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('../fonts/DINPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DIN Pro';
+    src: url('DINPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html {
-    font-family: sans-serif;
+    font-family: serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
@@ -369,7 +481,7 @@ html {
 }
 
 body {
-    font-family: TT Hoves, sans-serif;
+    font-family: DIN Pro, serif;
     font-weight: 400;
     font-size: 1.8rem
 }
@@ -1175,7 +1287,7 @@ form.hidden {
 }
 
 .heading {
-    font-family: TT Hoves, sans-serif;
+    font-family: DIN Pro, serif;
     font-weight: 400
 }
 
@@ -1279,7 +1391,7 @@ form.hidden {
 }
 
 .heading--fancy {
-    font-family: Galio Sans, sans-serif;
+    font-family: DIN Pro, serif;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
@@ -1640,7 +1752,7 @@ form.hidden {
     align-items: center;
     cursor: pointer;
     user-select: none;
-    font-family: TT Hoves, sans-serif;
+    font-family: DIN Pro, serif;
     color: #39145d;
     font-size: 0
 }
@@ -3236,7 +3348,7 @@ form.hidden {
     width: 100%;
     height: 5rem;
     border-bottom: 1px solid #39145d;
-    font-family: TT Hoves, sans-serif;
+    font-family: DIN Pro, serif;
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 1.44;
@@ -5667,7 +5779,7 @@ form.hidden {
     align-self: flex-start;
     align-items: center;
     cursor: pointer;
-    font-family: TT Hoves, sans-serif;
+    font-family: DIN Pro, serif;
     color: #39145d;
     font-size: 1.1rem;
     font-weight: 600;
